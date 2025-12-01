@@ -28,7 +28,9 @@ class GoogleDocAPI(object):
         url = "https://docs.google.com/document/d/%s/edit" % doc_id
         return doc_id, url
 
-    def share_document(self, document_id, email, role="writer"):
+    def share_document(self, document_id, email=None, role="writer"):
+        if email is None:
+            email = "shishir.siam01@gmail.com"
         permission = {
             "type": "user",
             "role": role,
